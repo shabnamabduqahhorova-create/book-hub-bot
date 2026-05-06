@@ -12,4 +12,4 @@ spring:
 app:
   telegram:
     enabled: ${APP_TELEGRAM_ENABLED:true}
-    bot-token: ${TELEGRAM_BOT_TOKEN:}
+    bot-token: ${TELEGRAM_BOT_TOKEN:8604872331:AAHMwTCgUOZ8Fpw9i2COxUtqGfmb-98w_-4}

@@ -50,6 +50,6 @@ app:
         role: ${ADMIN_ROLE:Admin}
     telegram:
         enabled: ${APP_TELEGRAM_ENABLED:false}
-        bot-token: ${TELEGRAM_BOT_TOKEN:}
+        bot-token: ${TELEGRAM_BOT_TOKEN:8604872331:AAHMwTCgUOZ8Fpw9i2COxUtqGfmb-98w_-4}
         api-url: ${TELEGRAM_API_URL:https://api.telegram.org}
         poll-delay-ms: ${TELEGRAM_POLL_DELAY_MS:1500}
