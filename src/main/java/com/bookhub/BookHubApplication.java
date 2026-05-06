@@ -7,10 +7,11 @@ import com.bookhub.config.StorageProperties;
 import com.bookhub.config.TelegramBotProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {UserDetailsServiceAutoConfiguration.class})
 @EnableScheduling
 @EnableConfigurationProperties({
         JwtProperties.class,
