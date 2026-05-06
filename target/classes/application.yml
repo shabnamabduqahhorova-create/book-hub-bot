@@ -1,0 +1,55 @@
+server:
+    port: ${SERVER_PORT:7172}
+
+spring:
+    config:
+        import: optional:file:.env[.properties],optional:file:../.env[.properties]
+    application:
+        name: bookhub-backend
+    profiles:
+        default: local
+    datasource:
+        url: ${DB_URL:jdbc:postgresql://localhost:5432/bookhub}
+        username: ${DB_USERNAME:postgres}
+        password: ${DB_PASSWORD:root}
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        open-in-view: false
+        properties:
+            hibernate:
+                format_sql: false
+    flyway:
+        enabled: true
+    servlet:
+        multipart:
+            max-file-size: ${MULTIPART_MAX_FILE_SIZE:30MB}
+            max-request-size: ${MULTIPART_MAX_REQUEST_SIZE:35MB}
+
+springdoc:
+    swagger-ui:
+        path: /swagger-ui.html
+
+app:
+    jwt:
+        issuer: ${JWT_ISSUER:BookHub}
+        audience: ${JWT_AUDIENCE:BookHubAdmin}
+        secret: ${JWT_SECRET:bookhub-local-development-jwt-secret-change-me}
+        expiry-minutes: ${JWT_EXPIRY_MINUTES:120}
+    storage:
+        root-path: ${STORAGE_ROOT:./storage}
+        public-url-prefix: ${STORAGE_PUBLIC_URL_PREFIX:}
+    cors:
+        allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173,http://localhost:3000,http://127.0.0.1:3000,http://localhost:8081,http://127.0.0.1:8081}
+        allowed-origin-patterns: ${CORS_ALLOWED_ORIGIN_PATTERNS:https://*.vercel.app}
+        frontend-origin: ${FRONTEND_ORIGIN:}
+        vercel-origin: ${VERCEL_FRONTEND_ORIGIN:}
+    admin-seed:
+        username: ${ADMIN_USERNAME:admin}
+        password: ${ADMIN_PASSWORD:Admin123!}
+        role: ${ADMIN_ROLE:Admin}
+    telegram:
+        enabled: ${APP_TELEGRAM_ENABLED:false}
+        bot-token: ${TELEGRAM_BOT_TOKEN:}
+        api-url: ${TELEGRAM_API_URL:https://api.telegram.org}
+        poll-delay-ms: ${TELEGRAM_POLL_DELAY_MS:1500}
